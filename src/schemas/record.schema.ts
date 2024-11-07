@@ -24,9 +24,11 @@ export const recordSchema = {
           .optional(),
         z
           .object({
-            external: z.object({
-              url: z.string(),
-            }),
+            external: z
+              .object({
+                url: z.string(),
+              })
+              .optional(),
             name: z.string(),
           })
           .optional()
