@@ -22,7 +22,7 @@ export class RecordService {
           ...createObject,
         },
       })
-      .then((result) => result.properties)
+      .then((result) => result)
       .catch((err) => {
         throw new Error(err.body);
       });
@@ -35,7 +35,7 @@ export class RecordService {
       .retrieve({
         page_id: page_id,
       })
-      .then((result) => result.properties)
+      .then((result) => result)
       .catch((err) => {
         throw new Error(err.body);
       });
@@ -53,7 +53,7 @@ export class RecordService {
           ...updateObject,
         },
       })
-      .then((result) => result.properties)
+      .then((result) => result)
       .catch((err) => {
         throw new Error(err.body);
       });
@@ -218,17 +218,17 @@ export class RecordService {
 
   formatOutput(data) {
     const output = {
-      Content: data.Content.rich_text[0].plain_text,
-      Description: data.Description.rich_text[0].plain_text,
-      Campaign: data.Campaign.rich_text[0].plain_text,
-      Where: data.Where.rich_text[0].plain_text,
-      PlannedDate: data.PlannedDate.date.start,
-      Company: data.Company.title[0].plain_text,
-      Language: data.Language.select.name,
-      imageContent: data['image content'].rich_text[0]?.plain_text,
+      Content: data.properties.Content.rich_text[0].plain_text,
+      Description: data.properties.Description.rich_text[0].plain_text,
+      Campaign: data.properties.Campaign.rich_text[0].plain_text,
+      Where: data.properties.Where.rich_text[0].plain_text,
+      PlannedDate: data.properties.PlannedDate.date.start,
+      Company: data.properties.Company.title[0].plain_text,
+      Language: data.properties.Language.select.name,
+      imageContent: data.properties['image content'].rich_text[0]?.plain_text,
       Image: {
-        name: data.Image.files[0]?.name,
-        url: data.Image.files[0]?.external.url,
+        name: data.properties.Image.files[0]?.name,
+        url: data.properties.Image.files[0]?.external.url,
       },
     };
 
