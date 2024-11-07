@@ -27,7 +27,7 @@ export class RecordService {
         throw new Error(err.body);
       });
 
-    return output;
+    return this.formatOutput(output);
   }
 
   async retrieveRecord(page_id: string) {
@@ -58,7 +58,7 @@ export class RecordService {
         throw new Error(err.body);
       });
 
-    return output;
+    return this.formatOutput(output);
   }
 
   async deleteRecord(pageId: string) {
