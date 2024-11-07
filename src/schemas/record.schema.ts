@@ -46,6 +46,32 @@ export const recordSchema = {
     where: z.string().optional(),
     plannedDate: z.string().date().optional(),
     language: z.enum(['Portuguese', 'Japanese', 'English']).optional(),
+    imageFiles: z
+      .array(
+        z
+          .object({
+            file: z
+              .object({
+                url: z.string(),
+                expiry_time: z.string().date().optional(),
+              })
+              .optional(),
+            name: z.string(),
+          })
+          .optional(),
+        z
+          .object({
+            external: z
+              .object({
+                url: z.string(),
+              })
+              .optional(),
+            name: z.string(),
+          })
+          .optional()
+      )
+      .optional(),
+    imageContent: z.string().optional(),
   }),
 
   retrieve: z.object({
