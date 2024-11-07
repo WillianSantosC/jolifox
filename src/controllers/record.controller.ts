@@ -8,7 +8,7 @@ export class RecordController {
     try {
       const record = await this.recordService.createRecord(req.body);
 
-      res.status(201).json('RECORD CREATED');
+      res.status(201).json(record);
     } catch (error) {
       next(error);
     }
@@ -33,7 +33,7 @@ export class RecordController {
 
       const record = await this.recordService.updateRecord(id, req.body);
 
-      res.status(200).json('Record Updated Successfully');
+      res.status(200).json(record);
     } catch (error) {
       next(error);
     }

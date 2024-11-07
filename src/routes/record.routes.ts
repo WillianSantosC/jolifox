@@ -78,7 +78,7 @@ export function routes(app: Router) {
                   ]
                  }
         } */
-      /* #swagger.responses[201] = {
+      /* #swagger.responses[200] = {
             description: 'Record created',
             schema: {
                 Content: "Project",
